@@ -57,11 +57,14 @@ function SearchPage() {
     },
 ]
   return (
-    <div className='w-full flex flex-col space-x-5'>
-        <div className="searchstring sticky top-0  drop-shadow">
-            <input type="text" placeholder="Only VIN" className="inputstring w-full" />
+    <div className='container w-full flex flex-col space-x-5'>
+        <div className="searchstring sticky top-0  drop-shadow justify-items-center">
+            <input type="text" placeholder="Search By VIN" className="inputstring" />
+            <div className=" btnt  ">
+                <button className="bg-[#3182CE] hover:bg-[#2B6CB0] rounded text-white text-base text-bold font-['inherit'] p-1 w-24">search</button>
+            </div>
         </div>
-        <p className="pl-4 text-4xl font-bold text-black decoration-8 decoration-dashed decoration-white">
+        <p className="pl-4 text-4xl font-bold text-black decoration-8 decoration-dashed decoration-white pt-10">
             Check history of cars sold at Copart and IAAI auctions
         </p>
         <p className="pl-4 text-black decoration-8 decoration-dashed decoration-white">

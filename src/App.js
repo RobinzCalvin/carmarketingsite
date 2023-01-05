@@ -7,8 +7,17 @@ import Layout from "./layout";
 import SearchPage from "./layout/main/searchPage";
 import CarItemView from "./layout/main/carItemView";
 import "swiper/css/bundle";
+// import rp from "request-promise";
+
+import { useEffect, useState } from "react";
 // import "./styles.css";
 function App() {
+  // const rp = require('request-promise');
+  // const [list, setList] = useState({});
+  // useEffect(() =>{
+  //   rp("https://pokedex.org/")
+  //   .then(html=>console.log(html))
+  // })
   return (
     <BrowserRouter>
       <Routes>

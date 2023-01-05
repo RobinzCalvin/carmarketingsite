@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+// import ReactDOM from "react-dom/client";
 import { CardList } from "../../component/cardList";
 import { useNavigate } from "react-router-dom";
 
@@ -67,17 +67,21 @@ const Slide = () => {
         navigate('/searchpage');
     }
   return (
-    <div className="row">
-        <div className="searchstring sticky top-0  drop-shadow">
-            <input type="text" placeholder="Only VIN" className="inputstring" />
+    <div className="container">
+        <div className="searchstring sticky top-0  drop-shadow justify-items-center">
+            <input type="text" placeholder="Search By VIN" className="inputstring" />
+            <div className=" btnt  ">
+                <button className="bg-[#3182CE] hover:bg-[#2B6CB0] rounded text-white text-base text-bold font-['inherit'] p-1 w-24">search</button>
+            </div>
         </div>
         <div className="mainstring">
-            <label className="labelcontent">
-            History of vehichles sold at the biggest auto auctions portals: IAAI
+            <label className="labelcontent pt-24">
+                History of vehichles sold at the 
+                biggest auto auctions portals: IAAI
             and Copart
             </label>
         </div>
-        <div className="contentstring">
+        <div className="contentstring pt-5">
             <label  className="labelcontent">
                 Check IAAI and Copart sales history. Get free information about the
                 prices of used cars from the USA from the biggest auto auctions.
@@ -86,14 +90,14 @@ const Slide = () => {
                 from Copart and IAAI auctions
             </label>
         </div>
-        <div className="slidesearchbtn">
+        <div className="slidesearchbtn flex justify-center">
             <button className="headerbtn1"  onClick={handleSearch}>Search</button>
         </div>
         <div className="contentstring1">
-            <label className="labelcontent">
-                History of vehichles sold at the biggest auto auctions portals: IAAI
-                and Copart
-            </label>
+            <h2>Discover auctions by car brand
+</h2>
+                
+            {/* </label> */}
         </div>
         <div className="contentstring">
             <label  className="labelcontent">
@@ -103,7 +107,7 @@ const Slide = () => {
                 )}
             </label>
         </div>
-        <div className="w-full h-auto  border-spacing-1 border-2 flex flex-col">
+        <div className="w-full h-auto  flex flex-col">
             {
                 carlist && carlist.map((cardata, index) =>
                     <CardList carinfo = {cardata} key={index}/>

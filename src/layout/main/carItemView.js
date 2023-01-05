@@ -4,14 +4,17 @@ import DemoCarousel from "../../component/carousel";
 import { Lists } from "./lists";
 function CarItemView() {
   return (
-    <div className="w-full flex flex-col items-center space-x-5  ">
-        <div className="searchstring sticky top-0  drop-shadow">
-            <input type="text" placeholder="Only VIN" className="inputstring" />
+    <div className="container w-full flex flex-col items-center space-x-5  ">
+        <div className="searchstring sticky top-0  drop-shadow justify-items-center">
+            <input type="text" placeholder="Search By VIN" className="inputstring" />
+            <div className=" btnt  ">
+                <button className="bg-[#3182CE] hover:bg-[#2B6CB0] rounded text-white text-base text-bold font-['inherit'] p-1 w-24">search</button>
+            </div>
         </div>
-        <div className="w-4/5 h-96">
+        <div className="w-full h-96">
             <DemoCarousel />
         </div>
-        <div className="w-full flex flex-row">
+        <div className="w-full flex flex-row pt-2">
             <div className="w-1/2 flex flex-col">
                 <h2 className="text-4xl text-bold float-left">Toyota RAV4 2018 </h2>
                 <h6 className="float-left">VIN: JTMRJREV6JD238474</h6>
@@ -29,23 +32,23 @@ function CarItemView() {
                 </div>
                 <div className="w-full flex justify-between p-2">
                     <h3 className="text-lg text-bold">Auction</h3>
-                    <label className="text-lg pr-24">Copart</label>
+                    <label className="text-lg pr-10">Copart</label>
                 </div>
                 <div className="w-full flex justify-between p-2">
                     <h3 className="text-lg text-bold">Lot</h3>
-                    <label className="text-lg pr-24">70586422</label>
+                    <label className="text-lg pr-10">70586422</label>
                 </div>
                 <div className="w-full flex justify-between p-2">
                     <h3 className="text-lg text-bold">Sale date</h3>
-                    <label className="text-lg pr-24">2023-01-02</label>
+                    <label className="text-lg pr-10">2023-01-02</label>
                 </div>
                 <div className="w-full flex justify-between p-2">
                     <h3 className="text-lg text-bold">Status</h3>
-                    <label className="text-lg pr-24">SOLD</label>
+                    <label className="text-lg pr-10">SOLD</label>
                 </div>
                 <div className="w-full flex justify-between p-2">
                     <h3 className="text-lg text-bold">Documents</h3>
-                    <label className="text-lg pr-24">WA - BILL OF SALE</label>
+                    <label className="text-lg pr-10">WA - BILL OF SALE</label>
                 </div>
             </div>
             <div className="w-1/2 flex flex-col">
@@ -55,23 +58,23 @@ function CarItemView() {
                 </div>
                 <div className="w-full flex justify-between p-2">
                     <h3 className="text-lg text-bold">Auction</h3>
-                    <label className="text-lg pr-24">Copart</label>
+                    <label className="text-lg pr-10">Copart</label>
                 </div>
                 <div className="w-full flex justify-between p-2">
                     <h3 className="text-lg text-bold">Lot</h3>
-                    <label className="text-lg pr-24">70586422</label>
+                    <label className="text-lg pr-10">70586422</label>
                 </div>
                 <div className="w-full flex justify-between p-2">
                     <h3 className="text-lg text-bold">Sale date</h3>
-                    <label className="text-lg pr-24">2023-01-02</label>
+                    <label className="text-lg pr-10">2023-01-02</label>
                 </div>
                 <div className="w-full flex justify-between p-2">
                     <h3 className="text-lg text-bold">Status</h3>
-                    <label className="text-lg pr-24">SOLD</label>
+                    <label className="text-lg pr-10">SOLD</label>
                 </div>
                 <div className="w-full flex justify-between p-2">
                     <h3 className="text-lg text-bold">Documents</h3>
-                    <label className="text-lg pr-24">WA - BILL OF SALE</label>
+                    <label className="text-lg pr-10">WA - BILL OF SALE</label>
                 </div>
             </div>
         </div>
@@ -95,6 +98,7 @@ function CarItemView() {
             Make: Toyota
             </li>
         </ul>
+        
         <div className="full">
             <p>This vehicle was sold at Copart auto auction in the USA. The final bid of the car JTMRJREV6JD238474 was 4100$. The car was sold 2023-01-02 Find more information and sales history of the vehicle on our website. Our tool provides you the reliable data about the cars. You also have the opportunity to check cars by vin and get the history completyly for free. Our resource vehiclebid.info gives you reliable sales history and statistics of cars from the USA and Canada. We provide the information from IAAI and Copart auto auctions.</p>
         </div>

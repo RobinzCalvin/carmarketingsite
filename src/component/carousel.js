@@ -27,7 +27,7 @@ export default function App() {
         className="mySwiper"
       >
         <SwiperSlide>
-            <img src="./img/cars/34556255-1.jpeg" className=" bg-cover"/>
+            <img src="./img/cars/34556255-1.jpeg"/>
         </SwiperSlide>
         <SwiperSlide>Slide 2</SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>

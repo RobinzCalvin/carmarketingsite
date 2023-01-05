@@ -7,15 +7,11 @@ import Header from "./header/header";
 
 const Layout = () => {
     return (
-        <div className="container">
-      <div className="row">
-        <div className="col-md-12">
+        <div className="w-full">
           <Header />
           <Outlet />
           <Footer />
         </div>
-      </div>
-    </div>
     )
 }
 

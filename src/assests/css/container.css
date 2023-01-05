@@ -1,6 +1,8 @@
 .container{
-    /* max-width: 1124px; */
+    /* max-width: 1120px !important; */
+    max-width: 1128px !important;
+    width: 1128px !important;
     /* background-color: antiquewhite; */
-    border: solid;
+    /* border: solid; */
     justify-self: center;
 }

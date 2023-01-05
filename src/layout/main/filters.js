@@ -19,46 +19,46 @@ export function Filters() {
   }
   return (
     
-      <div className='flex justify-center  border border-neutral-300 p-4 shadow-md'>
+      <div className='flex justify-center  border border-neutral-300  shadow-md'>
         <div className='  w-5/6 float-left'>
           <div className="box-border h-auto w-full  border-1 rounded-lg">
-            <p>Filters</p>            
-            <select className="langsel">
+            <p className='pt-5 font-bold text-xl  '>Filters</p>            
+            <select className="langsel2">
               <option value={1}>english</option>
               <option value={1}>russion</option>
               <option value={1}>english</option>
               <option value={1}>english</option>
             </select>
-            <p>Sort by</p>
-            <select className="langsel">
+            <p className='font-semibold mb-0 mt-2	'>Sort by</p>
+            <select className="langsel2">
               <option value={1}>english</option>
               <option value={1}>russion</option>
               <option value={1}>english</option>
               <option value={1}>english</option>
             </select>
-            <p>Sort direction</p>
-            <select className="langsel">
+            <p className='font-semibold mb-0 mt-2	'>Sort direction</p>
+            <select className="langsel2">
               <option value={1}>english</option>
               <option value={1}>russion</option>
               <option value={1}>english</option>
               <option value={1}>english</option>
             </select>
-            <p>Make</p>
-            <select className="langsel">
+            <p className='font-semibold mb-0 mt-2	'>Make</p>
+            <select className="langsel2">
               <option value={1}>english</option>
               <option value={1}>russion</option>
               <option value={1}>english</option>
               <option value={1}>english</option>
             </select>
-            <p>Model</p>     
-            <select className="langsel">
+            <p className='font-semibold mb-0 mt-2	'>Model</p>     
+            <select className="langsel2">
               <option value={1}>english</option>
               <option value={1}>russion</option>
               <option value={1}>english</option>
               <option value={1}>english</option>
             </select>       
           </div>          
-          <button className='rounded-md w-full h-10 bg-[#F29F05] text-2xl text-white hover:bg-[#d3c84d] mt-4' onClick={() => handleApply()}>Search</button>
+          <button className='rounded-md w-full h-10 bg-[#F29F05] text-2xl text-white hover:bg-[#d3c84d] mt-4 mb-4' onClick={() => handleApply()}>Search</button>
         </div>
         
       </div>

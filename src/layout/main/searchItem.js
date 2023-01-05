@@ -1,15 +1,21 @@
+import { useNavigate } from "react-router-dom";
+
 export function SearchItem(props) {
+  const navigate = useNavigate();
     const title = props.title;
     const id = props.id;
     const sdata = props.sdatas;
+    function handleSearch(){
+      navigate('/caritemviewpage');
+    }    
     console.log(sdata.date)
     return (
       <div className="figure h-auto ">
-        <figure className=" items-stretch w-full  flex flex-row border border-neutral-300 rounded shadow-md">
+        <figure className=" items-stretch w-full  flex flex-row border border-neutral-300 rounded shadow-md" >
           <img
-            className=" self-center w-2/5 h-auto rounded"
+            className=" self-center w-2/5 h-auto rounded hover:brightness-50"
             src={sdata.imgurl}
-            alt="dish"
+            alt="dish"  onClick={handleSearch} 
           />
           <div className="w-3/5 flex flex-row">
             <div className="w-full flex items-center ">
