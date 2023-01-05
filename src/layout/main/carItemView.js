@@ -4,7 +4,10 @@ import DemoCarousel from "../../component/carousel";
 import { Lists } from "./lists";
 function CarItemView() {
   return (
-    <div className="w-full flex flex-col items-center mt-5 space-x-5  ">
+    <div className="w-full flex flex-col items-center space-x-5  ">
+        <div className="searchstring sticky top-0  drop-shadow">
+            <input type="text" placeholder="Only VIN" className="inputstring" />
+        </div>
         <div className="w-4/5 h-96">
             <DemoCarousel />
         </div>

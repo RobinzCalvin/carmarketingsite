@@ -57,7 +57,7 @@ function SearchPage() {
     },
 ]
   return (
-    <div className='w-full flex flex-col mt-5 space-x-5'>
+    <div className='w-full flex flex-col space-x-5'>
         <div className="searchstring sticky top-0  drop-shadow">
             <input type="text" placeholder="Only VIN" className="inputstring w-full" />
         </div>
