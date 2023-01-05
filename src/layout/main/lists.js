@@ -11,7 +11,7 @@ export function Lists(props) {
         list.map(
             (sdata, index) =>
                 sdata.list && sdata.list.map((sdatas, ids) => (
-                <SearchItem key={index} ids={ids} sdatas={sdatas} title={sdatas.type} id={sdatas.date} />
+                <SearchItem key={index+ids} sdatas={sdatas} title={sdatas.type} id={sdatas.date} />
             ))
         )}
     </div>

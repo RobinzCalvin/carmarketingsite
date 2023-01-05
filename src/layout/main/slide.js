@@ -95,14 +95,6 @@ const Slide = () => {
                 and Copart
             </label>
         </div>
-        {/* <div className="centere">
-            <div className="labelcontent">
-                {btnarray.map((data, index)=>
-                        // console.log('button-name=>', data)    
-                    <button key={index} className="btnarr">{data}</button>
-                )}
-            </div>
-        </div> */}
         <div className="contentstring">
             <label  className="labelcontent">
                  {btnarray.map((data, index)=>
@@ -117,7 +109,6 @@ const Slide = () => {
                     <CardList carinfo = {cardata} key={index}/>
                 )
             }
-            
         </div>
     </div>
   );
