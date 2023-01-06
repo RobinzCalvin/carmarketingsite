@@ -26,11 +26,11 @@ export default function App() {
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>
-            <img src="./img/cars/34556255-1.jpeg"/>
+        <SwiperSlide className="float-left">
+          <img src="img/cars/34556255-1.jpeg" className="w-auto h-auto float-left"/>
         </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide><img src="img/cars/34556255-1.jpeg" className="w-auto h-auto float-left"/></SwiperSlide>
+        <SwiperSlide><img src="img/cars/34556255-1.jpeg" className="w-auto h-auto float-left"/></SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>
         <SwiperSlide>Slide 5</SwiperSlide>
         <SwiperSlide>Slide 6</SwiperSlide>
