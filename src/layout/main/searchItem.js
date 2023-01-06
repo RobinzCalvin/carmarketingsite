@@ -20,14 +20,14 @@ export function SearchItem(props) {
           <div className="w-3/5 flex flex-row">
             <div className="w-full flex items-center ">
               <div className="chakra-card__body css-1idwstw pl-4 content-center">
-                <h2 className="chakra-heading css-18j379d">{title}</h2>
-                <p className="chakra-text css-0">VIN: JTMRJREV6JD238474</p>
-                <p className="chakra-text css-wt5l11">
+                <label className="w-full font-bold text-xl font-['arial'] ">{title}</label>
+                <label className="text-xl">VIN: JTMRJREV6JD238474</label>
+                <label className=" w-full pt-2">
                   <strong>Lot</strong>: {id}
-                </p>
-                <p className="chakra-text css-0">
-                  <strong>Sale date</strong>: {sdata.date}
-                </p>
+                </label>
+                <label className=" w-full">
+                  <strong>Sale Date</strong>: {sdata.date}
+                </label>
                 <p className="chakra-text css-0">
                   <strong>Odometer</strong>: 0 mil
                 </p>
