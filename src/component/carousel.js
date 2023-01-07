@@ -16,8 +16,8 @@ export default function App() {
   return (
     <>
       <Swiper
-        slidesPerView={1}
-        spaceBetween={30}
+        slidesPerView={1.5}
+        spaceBetween={5}
         loop={true}
         pagination={{
           clickable: true,
@@ -27,10 +27,10 @@ export default function App() {
         className="mySwiper"
       >
         <SwiperSlide className="float-left">
-          <img src="img/cars/34556255-1.jpeg" className="w-auto h-auto float-left"/>
+          <img src="img/cars/34556255-1.jpeg"/>
         </SwiperSlide>
-        <SwiperSlide><img src="img/cars/34556255-1.jpeg" className="w-auto h-auto float-left"/></SwiperSlide>
-        <SwiperSlide><img src="img/cars/34556255-1.jpeg" className="w-auto h-auto float-left"/></SwiperSlide>
+        <SwiperSlide><img src="img/cars/34556255-1.jpeg" /></SwiperSlide>
+        <SwiperSlide><img src="img/cars/34556255-1.jpeg" /></SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>
         <SwiperSlide>Slide 5</SwiperSlide>
         <SwiperSlide>Slide 6</SwiperSlide>
