@@ -1,7 +1,11 @@
+import axios from "axios";
 import React from "react";
 import { Filters } from "./filters";
 import { Lists } from "./lists";
 function SearchPage() {
+    axios.get('http://localhost/scrapping/?page=2').then(response => {
+        console.log(response);
+    })
   const carlist = [
     {
         title:'Audi',

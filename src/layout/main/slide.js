@@ -1,73 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import ReactDOM from "react-dom/client";
 import { CardList } from "../../component/cardList";
 import { useNavigate } from "react-router-dom";
+import carList from '../../config/finallydataofcopartandiaai.json';
 
 const Slide = () => {
+    const [carlist, setCarlist] = useState([]);
+    useEffect(()=>{
+        setCarlist(carList);
+    }, [])
+    
     const navigate = useNavigate();
+    
+    console.log('carlist================', carlist);
+    // const axios = require('axios')
+    // axios
+    //     .get('https://www.iaai.com/Search?url=mcftnRTQcTl5opeck3dHMrio79mDbIcIlabytJXvEwY%3d')
     const btnarray = [
         'ACURA', 'ALFA ROMEO','ASTON MARTIN','AUDI','BMW','BENTLEY','BUGATTI','BUICK','CADILLAC','CHEVROLET','CHRYSLER','CITROEN','DODGE','FERRARI','FIAT','FORD','GMC','HONDA','HUMMER','HYUNDAI','INFINITI','JAGUAR','JEEP','KIA','LAMPORGHINI','LAND','ROVER','LEXXUS','LINCOLN','LOTUS', 'MASERATI', 'MAYBACH', 'MAZDA', 'MCLAREN', 'MERCEDES-BENZ', 'MERCURY', 'MINI', 'MITSUBISHI', 'NISSAN', 'OPEL', 'PEUGEOT', 'PONTIAC', 'PORSCHE', 'RENAULT', 'RAM', 'ROLLS-ROYCE', 'SAAB', 'SCION', 'SMART', 'SUBARU', 'TESLA', 'TOYOTA', 'VOLKSWAGEN', 'VOLVO',
-    ]
-       
-    const carlist = [
-        {
-            title:'Audi',
-            id:'232542',
-            list:[
-                {
-                    type: 'Audi A4 2011',
-                    date:'2022-12-30',
-                    imgurl: 'img/cars/34556255-1.jpeg',
-                },
-                {
-                    type: 'Audi A4 2011',
-                    date:'2022-12-30',
-                    imgurl: './img/cars/34658453-1.jpeg',
-                },
-                {
-                    type: 'Audi A4 2011',
-                    date:'2022-12-30',
-                    imgurl: './img/cars/54266212-1.jpeg',
-                },
-                {
-                    type: 'Audi A4 2011',
-                    date:'2022-12-30',
-                    imgurl: './img/cars/58308712-1.jpeg',
-                },
-            ]
-        },
-        {
-            title:'Toyota',
-            id:'345333',
-            list:[
-                {
-                    type: 'Toyota A4 2011',
-                    date:'2022-12-30',
-                    imgurl: 'img/cars/64977912-1.jpeg',
-                },
-                {
-                    type: 'Toyota A4 2011',
-                    date:'2022-12-30',
-                    imgurl: './img/cars/67059162-1.jpeg',
-                },
-                {
-                    type: 'Toyota A4 2011',
-                    date:'2022-12-30',
-                    imgurl: './img/cars/67126772-1.jpeg',
-                },
-                {
-                    type: 'Toyota A4 2011',
-                    date:'2022-12-30',
-                    imgurl: './img/cars/67206002-1.jpeg',
-                },
-            ]
-        },
     ]
     function handleSearch(){
         navigate('/searchpage');
     }
   return (
     <div className="container">
+        {
+            // console.log('length',carlist.length())
+        }
         <div className="searchstring sticky top-0  drop-shadow justify-items-center">
             <input type="text" placeholder="Search By VIN" className="inputstring" />
             <div className=" btnt  ">
@@ -107,7 +66,7 @@ const Slide = () => {
                 )}
             </label>
         </div>
-        <div className="w-full h-auto  flex flex-col">
+        <div className="w-full h-auto  grid grid-cols-4 gap-4">
             {
                 carlist && carlist.map((cardata, index) =>
                     <CardList carinfo = {cardata} key={index}/>
