@@ -12,7 +12,8 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 
-export default function App() {
+export default function DemoCarousel(props) {
+  let listurl = props.carDataimagelist;
   return (
     <>
       <Swiper
@@ -26,17 +27,15 @@ export default function App() {
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide className="float-left">
-          <img src="img/cars/34556255-1.jpeg"/>
-        </SwiperSlide>
-        <SwiperSlide><img src="img/cars/34556255-1.jpeg" /></SwiperSlide>
-        <SwiperSlide><img src="img/cars/34556255-1.jpeg" /></SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        {listurl && listurl.map ((data, index)=>
+          <SwiperSlide className="float-left" key = {index}>
+            {
+              
+             <img src={data}/> 
+            }
+          </SwiperSlide>
+        )}
+        
       </Swiper>
     </>
   );

@@ -7,24 +7,19 @@ import Layout from "./layout";
 import SearchPage from "./layout/main/searchPage";
 import CarItemView from "./layout/main/carItemView";
 import "swiper/css/bundle";
-// import rp from "request-promise";
-
 import { useEffect, useState } from "react";
-// import "./styles.css";
 function App() {
-  // const rp = require('request-promise');
-  // const [list, setList] = useState({});
-  // useEffect(() =>{
-  //   rp("https://pokedex.org/")
-  //   .then(html=>console.log(html))
-  // })
+  const [linkUrl, setLinkUrl] = useState('');
+  const [searchlinkfref, setSearchlinkref] = useState('');
+  const [price , setPrice] = useState('');
+  const [searchString, setSearchString] = useState('');
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Slide />} />  
-          <Route path="/searchpage" element={<SearchPage />} />  
-          <Route path="/caritemviewpage" element={<CarItemView />} />  
+          <Route index element={<Slide  searchString = {searchString}  linkUrl = {linkUrl} setLinkUrl={setLinkUrl} setSearchlinkref = {setSearchlinkref}  setSearchString={setSearchString} />} />  
+          <Route path="/searchpage" element={<SearchPage searchString = {searchString} setPrice = {setPrice} linkUrl = {linkUrl} setLinkUrl={setLinkUrl} searchlinkfref = {searchlinkfref}  />} />  
+          <Route path="/caritemviewpage" element={<CarItemView price = {price}  linkUrl = {linkUrl} setLinkUrl={setLinkUrl} />} />  
         </Route>
       </Routes>
     </BrowserRouter>

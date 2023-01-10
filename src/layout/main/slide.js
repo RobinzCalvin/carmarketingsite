@@ -2,35 +2,50 @@ import React, { useEffect, useState } from "react";
 // import ReactDOM from "react-dom/client";
 import { CardList } from "../../component/cardList";
 import { useNavigate } from "react-router-dom";
-import carList from '../../config/finallydataofcopartandiaai.json';
+// import carList from '../../config/finallydataofcopartandiaai.json';
+import axios from "axios";
 
-const Slide = () => {
-    const [carlist, setCarlist] = useState([]);
-    useEffect(()=>{
-        setCarlist(carList);
-    }, [])
-    
+const Slide = (props) => {
+    let setLinkUrl = props.setLinkUrl;
+    let linkUrl = props.linkUrl;
+    let setSearchString = props.setSearchString;
+    let setSearchlinkref = props.setSearchlinkref;
+    let searchString = props.searchString;
+    const [carList, setCarList] = useState([]);
+    const [btnarray, setBtnarray] = useState([]);
     const navigate = useNavigate();
-    
-    console.log('carlist================', carlist);
-    // const axios = require('axios')
-    // axios
-    //     .get('https://www.iaai.com/Search?url=mcftnRTQcTl5opeck3dHMrio79mDbIcIlabytJXvEwY%3d')
-    const btnarray = [
-        'ACURA', 'ALFA ROMEO','ASTON MARTIN','AUDI','BMW','BENTLEY','BUGATTI','BUICK','CADILLAC','CHEVROLET','CHRYSLER','CITROEN','DODGE','FERRARI','FIAT','FORD','GMC','HONDA','HUMMER','HYUNDAI','INFINITI','JAGUAR','JEEP','KIA','LAMPORGHINI','LAND','ROVER','LEXXUS','LINCOLN','LOTUS', 'MASERATI', 'MAYBACH', 'MAZDA', 'MCLAREN', 'MERCEDES-BENZ', 'MERCURY', 'MINI', 'MITSUBISHI', 'NISSAN', 'OPEL', 'PEUGEOT', 'PONTIAC', 'PORSCHE', 'RENAULT', 'RAM', 'ROLLS-ROYCE', 'SAAB', 'SCION', 'SMART', 'SUBARU', 'TESLA', 'TOYOTA', 'VOLKSWAGEN', 'VOLVO',
-    ]
+    useEffect(() => {
+        axios.get('http://localhost/scrapping/main.php')
+              .then(res => {
+                setCarList(res.data);
+              })
+              .catch(() => {
+                  alert('There was an error while retrieving the data')
+              })
+        axios.get('http://localhost/scrapping/buttonlist.php')
+            .then(res1 => {
+                setBtnarray(res1.data);
+            })
+            .catch(() => {
+                alert('There was an error while retrieving the data')
+            })
+    }, [])
+
     function handleSearch(){
+        setSearchlinkref('');
         navigate('/searchpage');
+    }
+    function handleClick(vari) {
+        setSearchlinkref(vari);
+        navigate('/searchpage');
+        // setSearchlinkref(params);
     }
   return (
     <div className="container">
-        {
-            // console.log('length',carlist.length())
-        }
         <div className="searchstring sticky top-0  drop-shadow justify-items-center">
-            <input type="text" placeholder="Search By VIN" className="inputstring" />
+            <input type="text" placeholder="Search By VIN" className="inputstring"  value={searchString} onChange={(e) => setSearchString(e.target.value)} />
             <div className=" btnt  ">
-                <button className="bg-[#3182CE] hover:bg-[#2B6CB0] rounded text-white text-base text-bold font-['inherit'] p-1 w-24">search</button>
+                <button className="bg-[#3182CE] hover:bg-[#2B6CB0] rounded text-white text-base text-bold font-['inherit'] p-1 w-24" onClick={handleSearch}>search</button>
             </div>
         </div>
         <div className="mainstring">
@@ -53,23 +68,19 @@ const Slide = () => {
             <button className="headerbtn1"  onClick={handleSearch}>Search</button>
         </div>
         <div className="contentstring1">
-            <h2>Discover auctions by car brand
-</h2>
-                
-            {/* </label> */}
+            <h2>Discover auctions by car brand</h2>
         </div>
         <div className="contentstring">
             <label  className="labelcontent">
                  {btnarray.map((data, index)=>
-                        // console.log('button-name=>', data)    
-                    <button key={index} className="btnarr">{data}</button>
+                    <button key={index} className="btnarr" onClick={()=>handleClick(data.href)}>{data.btnname}</button>
                 )}
             </label>
         </div>
         <div className="w-full h-auto  grid grid-cols-4 gap-4">
             {
-                carlist && carlist.map((cardata, index) =>
-                    <CardList carinfo = {cardata} key={index}/>
+                carList && carList.map((cardata, index) =>
+                    <CardList carinfo = {cardata} key={index} setLinkUrl={setLinkUrl}/>
                 )
             }
         </div>
