@@ -24,7 +24,7 @@ function SearchPage(props) {
             }
         }
         
-        axios.get(searchurl)
+        axios.get(searchurl, {mode:'cors'})
             .then(res => {
                     setAllPage(res.data[0].count);
                     setSearchCarList(res.data);

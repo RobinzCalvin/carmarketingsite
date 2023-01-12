@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 // import ReactDOM from "react-dom/client";
 import { CardList } from "../../component/cardList";
 import { useNavigate } from "react-router-dom";
+
 // import carList from '../../config/finallydataofcopartandiaai.json';
 import axios from "axios";
 
@@ -15,14 +16,15 @@ const Slide = (props) => {
     const [btnarray, setBtnarray] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        axios.get('http://localhost/scrapping/main.php')
+        
+        axios.get('http://localhost/scrapping/main.php', {mode:'cors'})
               .then(res => {
                 setCarList(res.data);
               })
               .catch(() => {
                   alert('There was an error while retrieving the data')
               })
-        axios.get('http://localhost/scrapping/buttonlist.php')
+        axios.get('http://localhost/scrapping/buttonlist.php', {mode:'cors'})
             .then(res1 => {
                 setBtnarray(res1.data);
             })

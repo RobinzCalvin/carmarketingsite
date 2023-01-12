@@ -123,6 +123,9 @@ body,html{padding:0;margin:0;font-family:-apple-system,BlinkMacSystemFont,Segoe 
     padding-bottom: 5px;
     margin: 5px;
 }
+.btnarr:hover{
+    color: #000;
+}
 .figure{
     width: 95%;
 }

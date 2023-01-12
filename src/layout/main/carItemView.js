@@ -10,7 +10,7 @@ function CarItemView(props) {
         let linkUrl=props.linkUrl;
 
         let searchurl = 'http://localhost/scrapping/detailView.php?page='+linkUrl;
-        axios.get(searchurl)
+        axios.get(searchurl, {mode:'cors'})
             .then(res => {
                 setCarData(res.data[0]);
             })
