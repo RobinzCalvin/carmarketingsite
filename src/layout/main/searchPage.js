@@ -2,15 +2,22 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Filters } from "./filters";
 import { Lists } from "./lists";
+import { useNavigate } from "react-router-dom";
+
 function SearchPage(props) {
     const [searchCarList, setSearchCarList] = useState([]);
     const [pageNum, setPageNum] = useState(0);
     const [allPage, setAllPage] = useState(0);
+    const navigate = useNavigate();
+
     let linkUrl = props.linkUrl;
     let setLinkUrl = props.setLinkUrl;
     let searchlinkfref = props.searchlinkfref;
     let setPrice = props.setPrice;
-    let searchString =props.searchString;
+    let searchString = props.searchString;
+    let setSearchString = props.setSearchString;
+    let setSearchlinkref = props.setSearchlinkref;
+    console.log('vinnuber', searchString);
     useEffect(()=>{
         let searchurl = '';
         if (searchString !=='') {
@@ -24,7 +31,7 @@ function SearchPage(props) {
             }
         }
         
-        axios.get(searchurl, {mode:'cors'})
+        axios.get(searchurl)
             .then(res => {
                     setAllPage(res.data[0].count);
                     setSearchCarList(res.data);
@@ -32,13 +39,22 @@ function SearchPage(props) {
             .catch(() => {
                 alert('There was an error while retrieving the data')
             })
-    }, [pageNum])  
+    }, [searchString])  
+    function handleSearch(){
+        setSearchlinkref('');
+        navigate('/searchpage');
+    }
+    function handleClick(vari) {
+        setSearchlinkref(vari);
+        navigate('/searchpage');
+        // setSearchlinkref(params);
+    }
   return (
     <div className='container w-full flex flex-col space-x-5'>
         <div className="searchstring sticky top-0  drop-shadow justify-items-center">
-            <input type="text" placeholder="Search By VIN" className="inputstring" />
-            <div className=" btnt  ">
-                <button className="bg-[#3182CE] hover:bg-[#2B6CB0] rounded text-white text-base text-bold font-['inherit'] p-1 w-24">search</button>
+            <input type="text" placeholder="Search By VIN" className="inputstring"  value={searchString} onChange={(e) => setSearchString(e.target.value)} />
+                <div className=" btnt  ">
+                    <button className="bg-[#3182CE] hover:bg-[#2B6CB0] rounded text-white text-base text-bold font-['inherit'] p-1 w-24" onClick={handleSearch}>search</button>
             </div>
         </div>
         <p className="pl-4 text-4xl font-bold text-black decoration-8 decoration-dashed decoration-white pt-10">

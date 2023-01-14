@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Slide  searchString = {searchString}  linkUrl = {linkUrl} setLinkUrl={setLinkUrl} setSearchlinkref = {setSearchlinkref}  setSearchString={setSearchString} />} />  
-          <Route path="/searchpage" element={<SearchPage searchString = {searchString} setPrice = {setPrice} linkUrl = {linkUrl} setLinkUrl={setLinkUrl} searchlinkfref = {searchlinkfref}  />} />  
+          <Route path="/searchpage" element={<SearchPage searchString = {searchString} setPrice = {setPrice} setSearchlinkref = {setSearchlinkref}  setSearchString={setSearchString} linkUrl = {linkUrl} setLinkUrl={setLinkUrl} searchlinkfref = {searchlinkfref}  />} />  
           <Route path="/caritemviewpage" element={<CarItemView price = {price}  linkUrl = {linkUrl} setLinkUrl={setLinkUrl} />} />  
         </Route>
       </Routes>
