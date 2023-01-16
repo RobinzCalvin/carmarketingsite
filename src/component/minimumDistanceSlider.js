@@ -6,52 +6,21 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
-const minDistance = 2;
+export default function RangeSlider() {
+  const [value, setValue] = React.useState([1960, 2023]);
 
-export default function MinimumDistanceSlider() {
-  const [value1, setValue1] = React.useState([1960, 2022]);
-
-  const handleChange1 = (event, newValue, activeThumb) => {
-    if (!Array.isArray(newValue)) {
-      return;
-    }
-
-    if (activeThumb === 0) {
-      setValue1([Math.min(newValue[0], value1[1] - minDistance), value1[1]]);
-    } else {
-      setValue1([value1[0], Math.max(newValue[1], value1[0] + minDistance)]);
-    }
-  };
-
-  const [value2, setValue2] = React.useState([1960, 2022]);
-
-  const handleChange2 = (event, newValue, activeThumb) => {
-    if (!Array.isArray(newValue)) {
-      return;
-    }
-
-    if (newValue[1] - newValue[0] < minDistance) {
-      if (activeThumb === 0) {
-        const clamped = Math.min(newValue[0], 2022 - minDistance);
-        setValue2([clamped, clamped + minDistance]);
-      } else {
-        const clamped = Math.max(newValue[1], minDistance);
-        setValue2([clamped - minDistance, clamped]);
-      }
-    } else {
-      setValue2(newValue);
-    }
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
   return (
     <Box>
       <Slider
-        getAriaLabel={() => 'Minimum distance shift'}
-        value={value2}
-        onChange={handleChange2}
+        getAriaLabel={() => 'Year range'}
+        value={value}
+        onChange={handleChange}
         valueLabelDisplay="auto"
         getAriaValueText={valuetext}
-        disableSwap
       />
     </Box>
   );

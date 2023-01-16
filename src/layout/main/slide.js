@@ -13,18 +13,19 @@ const Slide = (props) => {
     let setSearchlinkref = props.setSearchlinkref;
     let searchString = props.searchString;
     const [carList, setCarList] = useState([]);
-    const [btnarray, setBtnarray] = useState([]);
+    let btnarray = props.btnarray;
+    let setBtnarray = props.setBtnarray;
     const navigate = useNavigate();
     useEffect(() => {
         
-        axios.get('http://localhost/scrapping/main.php', {mode:'cors'})
+        axios.get('http://localhost/scrapping/main.php')
               .then(res => {
                 setCarList(res.data);
               })
               .catch(() => {
                   alert('There was an error while retrieving the data')
               })
-        axios.get('http://localhost/scrapping/buttonlist.php', {mode:'cors'})
+        axios.get('http://localhost/scrapping/buttonlist.php')
             .then(res1 => {
                 setBtnarray(res1.data);
             })

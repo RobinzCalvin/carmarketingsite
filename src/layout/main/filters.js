@@ -2,22 +2,22 @@ import { Input, Radio, RadioGroup } from '@mui/material';
 import BaseComponent from 'bootstrap/js/dist/base-component';
 import React,{ useState} from 'react';
 import BasicDateRangePicker from '../../component/BasicDateRangePicker';
-import MinimumDistanceSlider from '../../component/minimumDistanceSlider';
+import RangeSlider from '../../component/minimumDistanceSlider';
+// import MinimumDistanceSlider from '../../component/minimumDistanceSlider';
 
-export function Filters() {
+export function Filters(props) {
   const [sLists,setSList]=useState([]);
   const [oList,setOList]=useState([]);
   const minDistance = 10;
 
+  let btnarray = props.btnarray;
 
   let natLists=["Olive oil","Oregano","tomato","olives"];
   let natdetails={
       title:"Nutrition details",
       detail:natLists,
   };
-  function valuetext(value) {
-    return `${value}°C`;
-  }
+ 
   
   const handleApply =() => {///////Include ingredient condition
     // let s="";
@@ -45,26 +45,22 @@ export function Filters() {
               <option value={1}>Descedding</option>
             </select>
             <p className='font-semibold mb-0 mt-2	'>Make</p>
-            <select className="langsel2" placeholder='Select...'>
-              <option value={1}></option>
-              <option value={1}>russion</option>
-              <option value={1}>english</option>
-              <option value={1}>english</option>
+            <select className="langsel2" >
+              
+              {
+                btnarray && btnarray.map((item, index)=>
+                <option value={index+1} >{item.btnname}</option>
+                )
+              }
             </select>
             <p className='font-semibold mb-0 mt-2	'>Model</p>     
             <select className="langsel2" placeholder='Select...'>
               <option value={1}>Copart</option>
-              <option value={1}>IAAI</option>
+              <option value={2}>IAAI</option>
               
             </select>  
-            <div className='w-full flex flex-row pt-2'>
-              <RadioGroup>
-                  <Radio value={"Copart"}>Copart</Radio>
-                  <Radio value={'IAAI'}>IAAI</Radio>
-              </RadioGroup>
-            </div>
             <div className='w-full pt-2'>
-              <MinimumDistanceSlider/>
+              <RangeSlider />
             </div>
             <div className='w-full flex flex-row pt-2'>
               <Input className='w-auto m-1' type='text' value={'1960'}/>

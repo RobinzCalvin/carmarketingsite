@@ -9,7 +9,7 @@ function SearchPage(props) {
     const [pageNum, setPageNum] = useState(0);
     const [allPage, setAllPage] = useState(0);
     const navigate = useNavigate();
-
+    let btnarray = props.btnarray;
     let linkUrl = props.linkUrl;
     let setLinkUrl = props.setLinkUrl;
     let searchlinkfref = props.searchlinkfref;
@@ -39,7 +39,7 @@ function SearchPage(props) {
             .catch(() => {
                 alert('There was an error while retrieving the data')
             })
-    }, [searchString])  
+    }, [searchString, pageNum])  
     function handleSearch(){
         setSearchlinkref('');
         navigate('/searchpage');
@@ -65,7 +65,7 @@ function SearchPage(props) {
         </p>
         <div className='w-full flex flex-row '>
             <div className='w-1/4 pr-4'>
-                <Filters />
+                <Filters btnarray={btnarray} />
             </div>
             <div className="w-3/4 pl-4 flex flex-col">
                 <Lists setPrice = {setPrice} showData={searchCarList} pageNum = {pageNum} allPage={allPage} setPageNum = {setPageNum}   linkUrl = {linkUrl} setLinkUrl={setLinkUrl} />
